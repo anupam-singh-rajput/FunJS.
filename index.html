@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- JavaScript to disable right click -->
+    <script type="text/javascript">
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online JavaScript Compiler</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Prism CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.css" rel="stylesheet" />
+    <style>
+        .code-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .copy-button:active {
+            background: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wholebody">
+        <div class="leftside">
+            <div class="sidebar">
+                <div class="logo">
+                    <div class="name">Topics</div>
+                    <div class="symbol">
+                        <i class="fa-solid fa-xmark" style="cursor: pointer; font-size: 1.8em;"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="Mainbar">
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                    <pre><code class="language-javascript">
+                        // Your code here
+                        console.log("Namaste India");
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="rightside">
+            <div class="container">
+                <textarea id="editor" placeholder="Write your JavaScript code here..."></textarea>
+                <button id="run">Run</button>
+                <button class="max-min"onclick="fullscreen()">Maximize</button>
+                <pre id="output"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="content.js"></script>
+    <script src="script.js"></script>
+    <script src="app.js"></script>
+    <!-- Prism JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
+    <script>
+
+        let rightside = document.querySelector(".rightside");
+        let leftside = document.querySelector(".leftside");
+        let btn = document.querySelector(".max-min");
+        let i = 1;
+        function fullscreen(){
+            rightside.style.maxWidth = `${window.innerWidth}px`;
+            if(i==1){
+                leftside.style.display="none";
+                rightside.style.width = "100%";
+                btn.textContent = "Minimize";
+                i=0;
+            }else{
+                leftside.style.display = "block"
+                rightside.style.width = "50%";
+                btn.textContent = "Maximize";
+                i=1;
+            }
+        }
+        function copyCode(button) {
+            const codeContainer = button.nextElementSibling;
+            const code = codeContainer.textContent;
+
+            // Remove comments
+            const codeWithoutComments = code.split('\n').map(line => {
+                const commentIndex = line.indexOf('//');
+                return commentIndex !== -1 ? line.slice(0, commentIndex).trimEnd() : line;
+            }).filter(line => line.trim().length > 0).join('\n');
+
+            navigator.clipboard.writeText(codeWithoutComments).then(() => {
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                }, 2000);
+            }).catch(() => {
+                button.textContent = 'Failed to copy';
+            });
+        }
+
+        let topics = ["Introduction to JavaScript", "Expression And Operators", "All About Variables", "Data Types in JavaScript", "Loops In JavaScript", "Array In JavaScript", "All About Object", "Array aur object destructuring", "Type Casting", "Exception Handling", "Functions In JavaScript", "Pure aur impure function", "Arrow Function", "IIFE", "Scope and Function Stack", "Synchronous and Asynchronous Code", "Value Of this", "First-Class Functions in JavaScript", "Callback Function", "Promise In JavaScript","Fetch API And Async/Await "];
+
+        let sidebar = document.querySelector(".sidebar");
+        document.addEventListener("DOMContentLoaded", function () {
+            topics.forEach(function (element) {
+                let div = document.createElement("div");
+                div.classList.add("sideBarItems");
+                div.textContent = element;
+                sidebar.appendChild(div);
+            })
+        })
+
+        let mainBar = document.querySelector(".Mainbar");
+        // ------------------------------------Four Function For Sidebar----------------------------------------
+        function showMenu() {
+            sidebar.style.left = '0';
+            mainBar.style.width = '75%';
+        }
+
+        function hideMenu() {
+            sidebar.style.left = '-25%';
+            mainBar.style.width = '100%';
+        }
+
+        document.querySelector(".fa-xmark").addEventListener("click", function () {
+            hideMenu();
+        });
+
+        window.addEventListener("mousemove", function () {
+            if (event.clientX <= 5) {
+                showMenu();
+            }
+            if (event.clientX >= 200) {
+                hideMenu();
+            }
+        })
+        // ---------------------------------------------------------------------------------------------------
+
+        // ------------------------------------Main Content-----------------------------------------------------
+        let mainContent = document.querySelector(".mainContent");
+        let topic;
+        sidebar.addEventListener("click", function (e) {
+            topic = e.target.textContent;
+            hideMenu();
+            displayTopicContent(topic)
+        })
+
+        function displayTopicContent(topic) {
+            const topicData = twothree.find(t => t.topic === topic);
+            mainBar.innerHTML = `<h1 style="text-align: center;">${topicData.topic}</h1>`;
+
+            let subcontent = topicData.subcontent;
+
+            let i = 0;
+            for (let element in subcontent) {
+                i = 1;
+                if (element.includes("subheading")) {
+                    mainBar.innerHTML += `<br><br><h2>${subcontent[element]}</h2><br>`;
+                    mainBar.scrollIntoView({ behavior: "smooth" });
+                }
+
+                if (element.includes("content")) {
+                    mainBar.innerHTML += `<p>${subcontent[element]}</p>`;
+                    if (subcontent[element].includes(".")) {
+                        mainBar.innerHTML += `<br>`;
+                    }
+                }
+
+                if (element.includes("image")) {
+                    mainBar.innerHTML += `<img src="${subcontent[element]}" alt="${topicData.topic}" style="width: 100%; height: auto; object-fit: cover">`;
+                }
+
+                if (element.includes("code")) {
+                    mainBar.innerHTML += `
+                        <div class="code-container">
+                        <button class="copy-button" onclick="copyCode(this)">Copy</button><pre style="height:auto !important;"><code class="language-javascript">${subcontent[element]}</code></pre></div>
+                    `;
+                    if (subcontent[element].includes("")) {
+                        mainBar.innerHTML += `<br>`;
+                    }
+                }
+            }
+            if (i == 0) {
+                mainBar.innerHTML += `<h3>...Don't worry it's coming soon</h3>`;
+            }
+
+            Prism.highlightAll();
+        }
+        // -----------------------------------------------------------------------------------------------------
+    </script>
+</body>
+
+</html>
