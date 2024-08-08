@@ -211,14 +211,14 @@
                 if (isMobile()) {
                     // Open the sidebar on swipe right
                     if (touchendX > touchstartX + 50) {
-                        sidebar.classList.add('open');
-                        mainContent.classList.add('shifted');
+                        sidebar.style.left = '0';
+                        mainBar.style.width = '75%';
                     }
 
                     // Close the sidebar on swipe left
                     if (touchendX < touchstartX - 50) {
-                        sidebar.classList.remove('open');
-                        mainContent.classList.remove('shifted');
+                         sidebar.style.left = '-25%';
+                        mainBar.style.width = '100%';
                     }
                 }
             }
