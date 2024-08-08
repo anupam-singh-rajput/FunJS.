@@ -84,7 +84,7 @@
             <div class="container">
                 <textarea id="editor" placeholder="Write your JavaScript code here..."></textarea>
                 <button id="run">Run</button>
-                <button class="max-min"onclick="fullscreen()">Maximize</button>
+                <button class="max-min"onclick="fullscreen()">Max</button>
                 <pre id="output"></pre>
             </div>
         </div>
@@ -105,18 +105,19 @@
         let rightside = document.querySelector(".rightside");
         let leftside = document.querySelector(".leftside");
         let btn = document.querySelector(".max-min");
+        let btn2 = document.querySelector(".no-norm")
         let i = 1;
         function fullscreen(){
             rightside.style.maxWidth = `${window.innerWidth}px`;
             if(i==1){
                 leftside.style.display="none";
                 rightside.style.width = "100%";
-                btn.textContent = "Minimize";
+                btn.textContent = "Min";
                 i=0;
             }else{
                 leftside.style.display = "block"
                 rightside.style.width = "50%";
-                btn.textContent = "Maximize";
+                btn.textContent = "Max";
                 i=1;
             }
         }
@@ -125,10 +126,12 @@
                 if (j == 1) {
                     rightside.style.display = "none";
                     leftside.style.width = "100%";
+                    btn2.textContent = "Min";
                     j = 0;
                 } else {
                     rightside.style.display = "block";
                     leftside.style.width = "50%"
+                    btn2.textContent = "Max";
                     j = 1;
                 }
             }
