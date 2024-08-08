@@ -124,256 +124,81 @@ const twothree = [
   {
     topic: "Expression And Operators",
     subcontent: {
-      subheadingg1: "Operands",
-      contentt1: `
-      Operands woh values hain jin par operations perform kiye jaate hain. Ye values variables, constants ya expressions ho sakti hain.
-    `,
-      codee1: `
-      let a = 5;
-      let b = 3;
-      let result = a + b;
-      // Is example mein, a aur b operands hain jin par addition operation perform ho raha hai. a aur b ke values 5 aur 3 hain.
-    `,
-      subheadingg2: "Operators",
-      contentt2: `
-      Operators woh symbols hain jo specific operations ko indicate karte hain, jaise addition, subtraction, comparison, etc. Operators operands par operations perform karte hain aur result produce karte hain.
-    `,
-      codee2: `
-      let result = a + b;
-      // Is example mein, + ek operator hai jo a aur b operands par addition operation perform karta hai.
-    `,
-      subheadingg3: "Arithmetic Operators",
-      contentt3: `
-      Arithmetic operators mathematical operations perform karte hain.
-    `,
-      codee3: `
-      let a = 5;
-      let b = 3;
-      console.log(a + b); // a+b i.e 5+3=8
-      console.log(a - b); // a-b i.e 5-3=2
-      console.log(a * b); // a*b i.e 5*3=15
-      console.log(a / b); // a/b i.e 5/3=1.666... ye quotient hai
-      console.log(a % b); // a%b i.e 5/3=2 ... ye remainder hai
-      console.log(a ** b); // a+b i.e 3+5= 125
-    `,
-      subheadingg4: "Assignment Operators",
-      contentt4: `
-      Assignment operators values assign karne ke liye use hote hain.
-    `,
-      codee4: `
-      let a = 5;
-      a += 3;
-      // asliyat me ye horaha hai
-      //Kabhi bhi right to left value compute karo assignment operator ke samay
-      //a = a+3; Chalu isko compute karte hai
-                //1st: a ki value(5) ko 3 se add karo total 8 ayega
-                //2nd ab total value ko a me assign kardo means a me daaldo
-      //a =5+3 i.e a=8;
-
-      a -= 2;
-      //a=a-2
-      //a=5-2 i.3 a=3
-
-      a *= 2; // 10
-      a /= 4; // 1.333...
-      a %= 2; // 1
-    `,
-      subheadingg5: "Comparison Operators",
-      contentt5: `
-      Comparison operators do values ko compare karte hain aur boolean result return karte hain.
-      Comparison Opertor ka output hamesa ya to true hoga ya to false
-    `,
-      codee5: `
-      let a = 5;
-      let b = 3;
-
-      console.log(a == b);
-      // == equality check karta hai
-      // kye a ka value b ke barabar hai i.e kya 5 3 ke barabar hai nahi i.e false
-
-      let c = "5"
-      let d = 5;
-      console.log(a === b); // false
-      //Kya c ka value d ke barabar hai yes "5" or 5 barabar lekin unka datatype same nahi hai
-      //=== strictly equal check two thing 1st kya value same hai 2nd kya unke datatype bhi same hai.
-
-      let e = "4";
-      let f = 4;
-      console.log(a != b); // false
-      //!= not equal
-      //Agar value same nahi rahegi to true return karta hai warna false
-      //Ye unka datatype nahi check nahi karta hai
-
-      console.log(a !== b); // false
-      //Ye unka datatype bhi check nahi karta hai
-
-      console.log(a > b); // true
-      //greater than
-      //kya a ki value b ke value se jada hai i.e 5>3 se bada hai, haa
-
-      console.log(a < b); // false
-      //smaller than
-      //kya a ki value b ke value se kam hai i.e 5<3 se chota hai, nahi
-
-      console.log(a >= b); // true
-      //greater than
-      //kya a ki value b ke value se jada hai i.e 5>3 se bada hai
-
-      console.log(a <= b); // false
-      //greater than
-      //kya a ki value b ke value se jada hai i.e 5>3 se bada hai
-    `,
-      subheadingg18: "Logical Operators",
-      contentt18: `
-      Logical operators do ya zyada boolean expressions ko combine karte hain aur boolean result return karte hain..
-    `,
-      code18: `
-      let x = true;
-let y = false;
-
-console.log(x && y); // Logical AND: x && y i.e true && false is false
-// x aur y dono true hone chahiye, tabhi result true hoga.
-
-console.log(x || y); // Logical OR: x || y i.e true || false is true
-// x ya y me se koi ek bhi true ho, to result true hoga.
-
-console.log(!x); // Logical NOT: !x i.e !true is false
-// x ka opposite value return karta hai.
-
-    `,
-      subheadingg8: "String Operators",
-      contentt8: `
-      String operators strings ke sath operations perform karte hain.
-    `,
-      codee8: `
-      let str = "Hello";
-      str += " World";
-      console.log(str); // "Hello World"
-    `,
-      subheadingg21: "Conditional (Ternary) Operator",
-      contentt21: `
-      Conditional operator ek condition ko test karta hai aur true ya false ke hisaab se value return karta hai.
-      Ternary operator if-else statement ka shorthand hai.
-    `,
-      code21: `
-      let a = 5;
-let b = 3;
-
-let result = a > b ? "a is greater" : "b is greater";
-console.log(result); // "a is greater"
-// Agar a > b true hai to "a is greater" return karega, nahi to "b is greater".
-    `,
-      subheadingg10: "Comma Operator",
-      contentt10: `
-      Comma operator multiple expressions ko evaluate karta hai aur last expression ka result return karta hai.
-    `,
-      codee10: `
-      let x = (1, 2, 3);
-      console.log(x); // 3
-    `,
-      subheadingg11: "Unary Operators",
-      contentt11: `
-      Unary operators ek single operand pe operation perform karte hain.
-    `,
-      codee11: `
-      let x = 5;
-      console.log(+x); // 5
-      console.log(-x); // -5
-      console.log(typeof x); // "number"
-      console.log(void 0); // undefined
-      let obj = { a: 1 };
-      delete obj.a;
-      console.log(obj.a); // undefined
-    `,
-      subheadingg12: "Relational Operators",
-      contentt12: `
-      Relational operators operands ke beech relation ko check karte hain.
-    `,
-      codee12: `
-      let obj = { a: 1 };
-      console.log('a' in obj); // true
-      let arr = [];
-      console.log(arr instanceof Array); // true
-    `,
-      subheadingg17: "Bitwise Operators",
-      contentt17: `
-      Bitwise operators binary representations pe operations perform karte hain.
-    `,
-      code17: `
-      let a = 5; // In binary: 0101
-let b = 3; // In binary: 0011
-
-console.log(a & b); // Bitwise AND: 0101 & 0011 i.e 0001 (1 in decimal)
-// Binary representation ke corresponding bits ko AND karta hai.
-
-console.log(a | b); // Bitwise OR: 0101 | 0011 i.e 0111 (7 in decimal)
-// Binary representation ke corresponding bits ko OR karta hai.
-
-console.log(a ^ b); // Bitwise XOR: 0101 ^ 0011 i.e 0110 (6 in decimal)
-// Binary representation ke corresponding bits ko XOR karta hai.
-
-console.log(~a); // Bitwise NOT: ~0101 i.e 1010 (-6 in decimal, two's complement)
-// Binary representation ke har bit ka opposite karta hai.
-
-console.log(a << 1); // Left Shift: 0101 << 1 i.e 1010 (10 in decimal)
-// Binary representation ko left shift karta hai aur 0 se fill karta hai.
-
-console.log(a >> 1); // Right Shift: 0101 >> 1 i.e 0010 (2 in decimal)
-// Binary representation ko right shift karta hai aur left side 0 se fill karta hai.
-
-console.log(a >>> 1); // Unsigned Right Shift: 0101 >>> 1 i.e 0010 (2 in decimal)
-// Binary representation ko right shift karta hai, left side 0 se fill karta hai (unsigned shift).
-
-        \`\`\`
-    `,
-      subheadingg19: "BigInt Operators",
-      contentt19: `
-      BigInt operators bohot bade integers pe operations perform karte hain.
-    `,
-      code19: `
-      - \`+\`, \`-\`, \`*\`, \`/\`, \`%\`, \`**\` can be used with BigInt similar to normal numbers.
-        \`\`\`javascript
-        let big = BigInt(12345678901234567890);
-        big + BigInt(10); // 12345678901234567900n
-        \`\`\`
-    `,
-      subheadingg20: "String Operators",
-      contentt20: `
-      String operators strings ke sath operations perform karte hain.
-    `,
-      code20: `
-      - \`+\` : Concatenation
-        \`\`\`javascript
-        "Hello" + " " + "World"; // "Hello World"
-        \`\`\`
-
-      - \`+=\` : Concatenation assignment
-        \`\`\`javascript
-        let str = "Hello";
-        str += " World"; // "Hello World"
-        \`\`\`
-    `,
-      subheadingg22: "Comma Operator",
-      contentt22: `
-      Comma operator multiple expressions ko evaluate karta hai aur last expression ka result return karta hai.
-    `,
-      code22: `
-      \`\`\`javascript
-      let x = (1, 2, 3); // x is 3
-      \`\`\`
-    `,
-      subheadingg23: `Relational Operators`,
-      content24: `
-        Relational operators operands ke beech relation ko check karte hain.<br><br>
-<br><br><br>
-- \` in \` : Checks if a property is in an object`,
-      code24: `
-        let obj = {a: 1};
-  'a' in obj; // true
-
-- \`instanceof\` : //Checks if an object is an instance of a constructor
-  let arr = [];
-  arr instanceof Array; // true`,
+      subheading1: "JavaScript Data Type",
+      c: "\n      In JavaScript, there are several built-in data types, including:\n    ",
+      subheading2: "Primitive Data Types",
+      content2:
+        "\n      These are the basic data types in JavaScript, and they include:<br><br>\n      - Number: Represents numeric values, both integers and floating-point numbers.<br><br>\n      - String: Represents textual data, enclosed within single (' ') or double (\" \") quotes.<br><br>\n      - Boolean: Represents a logical value, either true or false.<br><br>\n      - Undefined: Represents a variable that has been declared but not assigned any value.<br><br>\n      - Null: Represents the intentional absence of any object value.<br><br>\n      - Symbol: Represents a unique identifier, introduced in ECMAScript 6 (ES6).<br><br>\n    ",
+      subheading3: "Non-primitive Data Types (Reference Types)",
+      content3:
+        "\n      These are more complex data types that are comprised of collections of data or objects. They include:<br><br>\n      - Object: Represents a collection of key-value pairs, also known as properties.<br><br>\n      - Array: Represents a collection of elements, each identified by an index.<br><br>\n      - Function: Represents a reusable block of code that can be invoked by name.<br><br>\n      - Date: Represents a specific moment in time.<br><br>\n      - RegExp: Represents a regular expression, used for pattern matching within strings.<br><br>\n    ",
+      subheading4: "Dynamic Typing",
+      content4:
+        "\n      JavaScript is a dynamically-typed language, which means that variables can hold values of any data type, and a variable's data type can change during the execution of a program.\n    ",
+      subheading5: "Primitive Values",
+      content5:
+        "\n      Primitive values represent direct data and when copied, their actual value is copied.\n      When you copy a primitive value from one variable to another, the actual value is copied, and both variables refer to different memory locations.\n    ",
+      code1:
+        "\n      var a = 12;\n      var b = a;\n      console.log(b); // Output: 12\n      b = b + 2;\n      console.log(b); // Output: 14\n    ",
+      subheading6: "Reference Values",
+      content6:
+        "\n      Reference values represent data indirectly, and when copied, a reference (or address) is copied.\n      <br><br>When you copy a reference value from one variable to another, not the actual value but its reference (or address) is copied, so both variables point to the same object or data.\n    ",
+      code2:
+        "\n      var a = [12, 13];\n      var b = a;\n      b.pop();\n      console.log(b); // Output: [12]\n      console.log(a); // Output: [12]\n    ",
+      subheading7: "Notice!",
+      content7:
+        "\n      Any value that, when copied, does not result in a real value copy, but instead copies its reference or address, is called a reference (address) type value.<br><br> And that whose copy causes real copy is called primitive type value.\n    ",
+      subheading8: "Examples",
+      subheading9: "1. Number",
+      content9:
+        "\n      Represents numeric values, like integers or floating-point numbers.\n    ",
+      code3:
+        "\n      var x = 10; // Integer\n      var y = 3.14; // Floating-point number\n    ",
+      subheading10: "2. String",
+      content10:
+        "\n      Represents textual data, enclosed within single (' ') or double (\" \") quotes.\n    ",
+      code4: '\n      var message = "Hello, world!";\n    ',
+      subheading11: "3. Boolean",
+      content11:
+        "\n      Represents a logical value, either true or false.\n    ",
+      code5: "\n      var isRaining = true;\n      var isSunny = false;\n    ",
+      subheading12: "4. Undefined",
+      content12:
+        "\n      Represents a variable that has been declared but not assigned any value.\n    ",
+      code6: "\n      var username; // Declared but not assigned\n    ",
+      subheading13: "5. Null",
+      content13:
+        "\n      Represents the intentional absence of any object value.\n    ",
+      code7: "\n      var product = null; // No product is selected\n    ",
+      subheading14: "6. Symbol",
+      content14:
+        "\n      Represents a unique identifier, introduced in ECMAScript 6 (ES6).\n    ",
+      code8: '\n      var id = Symbol("uniqueId");\n    ',
+      subheading15: "7. Object",
+      content15:
+        "\n      Represents a collection of key-value pairs, also known as properties.\n    ",
+      code9:
+        '\n      var person = { name: "John", age: 30, city: "New York" };\n    ',
+      subheading16: "8. Array",
+      content16:
+        "\n      Represents a collection of elements, each identified by an index.\n    ",
+      code10: "\n      var numbers = [1, 2, 3, 4, 5];\n    ",
+      subheading17: "9. Function",
+      content17:
+        "\n      Represents a reusable block of code that can be invoked by name.\n    ",
+      code11:
+        '\n      function greet(name) {\n        console.log("Hello, " + name + "!");\n      }\n    ',
+      subheading18: "10. Date",
+      content18: "\n      Represents a specific moment in time.\n    ",
+      code12: "\n      var today = new Date();\n    ",
+      subheading19: "11. RegExp",
+      content19:
+        "\n      Represents a regular expression, used for pattern matching within strings.\n    ",
+      code13:
+        '\n      var pattern = /hello/i; // Case-insensitive search for "hello"\n    ',
+      subheading20: "Conclusion",
+      content20:
+        "\n      Understanding these data types and their usage is essential for writing effective JavaScript code.\n    ",
     },
   },
   {
